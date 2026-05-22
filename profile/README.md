@@ -134,7 +134,7 @@ Access Token이 만료되면 백엔드가 401을 반환하고, 프론트의 `api
 
 ## 4. 주요 기능
 
-각 기능의 화면/엔드포인트 상세는 [`Backend/README.md`](./Backend/README.md), [`Front/README.md`](./Front/README.md)를 참고하세요.
+각 기능의 화면/엔드포인트 상세는 [Backend README](https://github.com/CoWork-Service/Back/blob/main/README.md), [Frontend README](https://github.com/CoWork-Service/Front/blob/main/README.md)를 참고하세요.
 
 ### 4.1 기능 ↔ 화면 ↔ API 매핑
 
@@ -208,7 +208,7 @@ Organization
 | `audit_logs` | 주요 변경 이력 |
 | `user_policy_consents` | 약관/개인정보 동의 버전별 기록 |
 
-전체 ERD는 `Backend/README.md`의 ERD 섹션을 참고하세요.
+전체 ERD는 [Backend README](https://github.com/CoWork-Service/Back/blob/main/README.md)의 ERD 섹션을 참고하세요.
 
 ### 5.3 Flyway 마이그레이션 히스토리
 
@@ -300,8 +300,8 @@ GET  /uploads/**
 
 | 문서 | 내용 |
 | --- | --- |
-| [`Backend/README.md`](./Backend/README.md) | 백엔드 도메인, 패키지 구성, ERD, API 목록 |
-| [`Front/README.md`](./Front/README.md) | 프론트엔드 라우팅, 스토어, 백엔드 연동 |
+| [Backend README](https://github.com/CoWork-Service/Back/blob/main/README.md) | 백엔드 도메인, 패키지 구성, ERD, API 목록 |
+| [Frontend README](https://github.com/CoWork-Service/Front/blob/main/README.md) | 프론트엔드 라우팅, 스토어, 백엔드 연동 |
 
 ## 7. Backend 상세
 
