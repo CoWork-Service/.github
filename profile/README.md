@@ -305,5 +305,5 @@ http://localhost:8080/v3/api-docs
 
 Swagger에서는 레거시 호환을 위해 Bearer Token 인증도 함께 문서화되어 있습니다.
 
-### 주요 API 목록
-https://github.com/CoWork-Service/Back/blob/main/docs/api-list.md
+### 주요 API 목록 
+[API 목록 보러가기](https://github.com/CoWork-Service/Back/blob/main/docs/api-list.md)
