@@ -194,35 +194,7 @@ Organization
 
 전체 ERD는 [Backend README](https://github.com/CoWork-Service/Back/blob/main/README.md)의 ERD 섹션을 참고하세요.
 
-### 5.3 Flyway 마이그레이션 히스토리
-
-`Backend/src/main/resources/db/migration` 디렉토리에 V1~V13까지 13개의 마이그레이션 파일이 있습니다.
-
-```text
-V1__init_schema.sql                          기본 테이블 정의
-V2__sso_onboarding.sql                       SSO 임시 토큰/온보딩
-V3__budget_evidence_and_mobile_expense.sql   영수증·모바일 세션
-V4__stored_files_metadata.sql                저장소 메타 분리
-V5__expand_invite_code_length.sql            초대 코드 길이 확장
-V6__asset_rental_record_details.sql          자산 대여 상세
-V7__custom_department_names.sql              조직별 커스텀 부서
-V8__require_president_department.sql         회장단 부서 기본 보장
-V9__user_policy_consents.sql                 약관 동의 기록
-V10__expense_receipt_datetime.sql            영수증 결제 시각
-V11__rename_receipt_datetime_comment.sql     컬럼 코멘트 정리
-V12__create_audit_logs.sql                   감사 로그
-V13__drop_request_metadata_from_logs.sql     로그 스키마 정리
 ```
-
-### 5.4 설계 의도 요약
-
-- **유저와 학생 분리**: `users`는 로그인 가능한 운영진, `students`는 관리 대상 학생 명부. 학생 전원이 계정을 가질 필요가 없음
-- **행사 중심 연결**: `expenses.event_id`, `surveys.event_id`, `timetables.event_id`, `file_items.event_id` 등으로 행사 상세에서 관련 자료를 한 번에 노출
-- **파일 메타와 실체 분리**: `file_items`(트리)와 `stored_files`(저장소 메타)를 분리해 로컬 ↔ S3 전환 시 서비스 로직 변경 최소화
-- **공개 API와 관리자 API 구분**: 설문 응답, 일정 응답, 모바일 영수증 업로드는 인증 없이 접근. 그 외 관리 기능은 JWT 인증 필수
-- **Soft Delete**: 주요 테이블은 `deleted_at`만 기록. 복구 가능성과 이력 추적 확보
-- **JSON 컬럼**: 행사 담당자 목록, 자산 태그, 설문 선택값, 일정 슬롯, 파일 로그 등 유동적 목록형 데이터를 단순하게 저장
-- **약관 버전 관리**: `user_policy_consents`로 약관/개인정보 동의 버전을 보관. 약관 갱신 시 백엔드가 `POLICY_CONSENT_REQUIRED` 응답을 내려 재동의 흐름을 강제
 
 ## 6. 인증과 보안
 
